@@ -4,7 +4,7 @@
 
 ## 데이터베이스 구조
 
-![ERD 다이어그램](images/erd-diagram.png)
+![ERD 다이어그램](images/ERD.png)
 
 ## 주요 기능
 
