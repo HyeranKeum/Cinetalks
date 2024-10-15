@@ -55,8 +55,6 @@
 - **DELETE /members/{user_id}**: 특정 회원 삭제
 
 #### 5. 리뷰 (Review)
-- **GET /reviews**: 모든 리뷰 조회
-- **GET /reviews/{review_id}**: 특정 리뷰 조회
 - **POST /reviews**: 새로운 리뷰 작성
     - 요청 본문에 `movie_id`와 `user_id` 포함
 - **PUT /reviews/{review_id}**: 특정 리뷰 수정
