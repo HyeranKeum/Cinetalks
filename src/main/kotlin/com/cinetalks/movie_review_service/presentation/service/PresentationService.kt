@@ -43,7 +43,7 @@ class PresentationService(
         return movies.map { MovieDTO(it) }
     }
 
-    fun getMoviesByGenre(genre: Genre): Optional<MovieDTO> {
+    fun getMoviesByGenre(genre: Genre): List<MovieDTO> {
         val moviesByGenre = presentationRepository.getMoviesByGenre(genre)
         return moviesByGenre.map { MovieDTO(it) }
     }

@@ -29,7 +29,7 @@ class PresentationRepository(
         return movieRepository.findAllByIsActive(true)
     }
 
-    fun getMoviesByGenre(genre: Genre): Optional<Movie> {
+    fun getMoviesByGenre(genre: Genre): List<Movie> {
         return movieRepository.findByGenreId(genre)
     }
 

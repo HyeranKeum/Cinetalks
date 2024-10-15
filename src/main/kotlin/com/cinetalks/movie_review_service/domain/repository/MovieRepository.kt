@@ -12,7 +12,7 @@ interface MovieRepository : JpaRepository<Movie, Long> {
     fun findAllByIsActive(isActive: Boolean): List<Movie>
 
     @Query("SELECT m FROM Movie m JOIN m.genres mg WHERE mg.genre = :genre")
-    fun findByGenreId(@Param("genre") genre: Genre): Optional<Movie>
+    fun findByGenreId(@Param("genre") genre: Genre): List<Movie>
 
     override fun findById(id: Long): Optional<Movie>
 
