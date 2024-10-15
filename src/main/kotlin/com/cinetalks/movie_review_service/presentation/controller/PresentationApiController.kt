@@ -27,11 +27,18 @@ class PresentationApiController(
         return presentationService.getIntroductions()
     }
 
+    //members
     @GetMapping("/v1/members")
     fun getMembers(): List<MemberDTO> {
         return presentationService.getMembers()
     }
 
+    @GetMapping("/v1/members/{memberId}")
+    fun getMembersById(@PathVariable memberId: Long): Optional<MemberDTO> {
+        return presentationService.getMembersById(memberId)
+    }
+
+    //movies
     @GetMapping("/v1/movies")
     fun getMovies(): List<MovieDTO> {
         return presentationService.getMovies()
@@ -42,13 +49,12 @@ class PresentationApiController(
         return presentationService.getMoviesById(movieId)
     }
 
-
+    // genres
     @GetMapping("/v1/genres")
     fun getAllGenres(): List<Genre> {
         return Genre.values().toList()
     }
 
-    // 특정 장르 영화 모두 출력
     @GetMapping("/v1/genres/{genreId}")
     fun getMoviesByGenre(@PathVariable genreId: Int): List<MovieDTO> {
         val genre = Genre.fromOrdinal(genreId)

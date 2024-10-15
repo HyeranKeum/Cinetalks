@@ -4,7 +4,6 @@ import com.cinetalks.movie_review_service.domain.constant.Genre
 import com.cinetalks.movie_review_service.domain.entity.Introduction
 import com.cinetalks.movie_review_service.domain.entity.Member
 import com.cinetalks.movie_review_service.domain.entity.Movie
-import com.cinetalks.movie_review_service.domain.entity.Review
 import com.cinetalks.movie_review_service.domain.repository.*
 import org.springframework.stereotype.Repository
 import java.util.*
@@ -38,8 +37,12 @@ class PresentationRepository(
         return movieRepository.findById(id)
     }
 
-    fun getActiveReviews(): List<Review> {
-        return reviewRepository.findAllByIsActive(true)
+    fun getMembersById(id: Long): Optional<Member> {
+        return memberRepository.findById(id)
     }
+
+    /*    fun getActiveReviews(): List<Review> {
+            return reviewRepository.findAllByIsActive(true)
+        }*/
 
 }

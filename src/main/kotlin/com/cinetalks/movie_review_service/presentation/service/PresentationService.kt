@@ -26,6 +26,11 @@ class PresentationService(
 
     }
 
+    fun getMembersById(id: Long): Optional<MemberDTO> {
+        val movies = presentationRepository.getMembersById(id)
+        return movies.map { MemberDTO(it) }
+    }
+
     fun getMovies(): List<MovieDTO> {
         val movies = presentationRepository.getActiveMovies()
 
