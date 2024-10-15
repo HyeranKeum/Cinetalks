@@ -4,7 +4,9 @@ import com.cinetalks.movie_review_service.domain.constant.Genre
 import com.cinetalks.movie_review_service.domain.entity.Introduction
 import com.cinetalks.movie_review_service.domain.entity.Member
 import com.cinetalks.movie_review_service.domain.entity.Movie
-import com.cinetalks.movie_review_service.domain.repository.*
+import com.cinetalks.movie_review_service.domain.repository.IntroductionRepository
+import com.cinetalks.movie_review_service.domain.repository.MemberRepository
+import com.cinetalks.movie_review_service.domain.repository.MovieRepository
 import org.springframework.stereotype.Repository
 import java.util.*
 
@@ -13,8 +15,6 @@ class PresentationRepository(
     private val introductionRepository: IntroductionRepository,
     private val memberRepository: MemberRepository,
     private val movieRepository: MovieRepository,
-    private val reviewRepository: ReviewRepository,
-    private val movieGenreRepository: MovieGenreRepository
 ) {
 
     fun getActiveIntroductions(): List<Introduction> {
