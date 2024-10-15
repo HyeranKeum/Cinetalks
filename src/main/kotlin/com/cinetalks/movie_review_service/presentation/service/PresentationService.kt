@@ -1,47 +1,52 @@
 package com.cinetalks.movie_review_service.presentation.service
 
 import com.cinetalks.movie_review_service.domain.constant.Genre
-import com.cinetalks.movie_review_service.domain.entity.MovieGenre
 import com.cinetalks.movie_review_service.presentation.dto.IntroductionDTO
 import com.cinetalks.movie_review_service.presentation.dto.MemberDTO
 import com.cinetalks.movie_review_service.presentation.dto.MovieDTO
 import com.cinetalks.movie_review_service.presentation.repository.PresentationRepository
 import org.springframework.stereotype.Service
-import com.cinetalks.movie_review_service.presentation.dto.ReviewDTO as ReviewDTO1
+import java.util.*
 
 @Service
 class PresentationService(
     private val presentationRepository: PresentationRepository
 ) {
-    fun getIntroductions():List<IntroductionDTO>{
+    fun getIntroductions(): List<IntroductionDTO> {
         val introductions = presentationRepository.getActiveIntroductions()
 
-        return introductions.map{IntroductionDTO(it)}
+        return introductions.map { IntroductionDTO(it) }
 
     }
 
-    fun getMembers():List<MemberDTO>{
+    fun getMembers(): List<MemberDTO> {
         val members = presentationRepository.getActiveMembers()
 
-        return members.map{MemberDTO(it)}
+        return members.map { MemberDTO(it) }
 
     }
 
-    fun getMovies():List<MovieDTO>{
+    fun getMovies(): List<MovieDTO> {
         val movies = presentationRepository.getActiveMovies()
 
-        return movies.map{MovieDTO(it)}
+        return movies.map { MovieDTO(it) }
 
     }
-    fun getMoviesByGenre(genre: Genre):List<MovieDTO>{
+
+    fun getMoviesById(id: Long): Optional<MovieDTO> {
+        val movies = presentationRepository.getMoviesById(id)
+        return movies.map { MovieDTO(it) }
+    }
+
+    fun getMoviesByGenre(genre: Genre): List<MovieDTO> {
         val moviesByGenre = presentationRepository.getMoviesByGenre(genre)
-        return moviesByGenre.map{MovieDTO(it)}
+        return moviesByGenre.map { MovieDTO(it) }
     }
 
-/*    fun getReview(): List<ReviewDTO1> {
-        val reviews = presentationRepository.getActiveReviews()
+    /*    fun getReview(): List<ReviewDTO1> {
+            val reviews = presentationRepository.getActiveReviews()
 
-        return reviews.map{ReviewDTO(it)}
+            return reviews.map{ReviewDTO(it)}
 
-    }*/
+        }*/
 }

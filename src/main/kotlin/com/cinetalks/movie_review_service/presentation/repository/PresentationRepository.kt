@@ -1,9 +1,13 @@
 package com.cinetalks.movie_review_service.presentation.repository
 
 import com.cinetalks.movie_review_service.domain.constant.Genre
-import com.cinetalks.movie_review_service.domain.entity.*
+import com.cinetalks.movie_review_service.domain.entity.Introduction
+import com.cinetalks.movie_review_service.domain.entity.Member
+import com.cinetalks.movie_review_service.domain.entity.Movie
+import com.cinetalks.movie_review_service.domain.entity.Review
 import com.cinetalks.movie_review_service.domain.repository.*
 import org.springframework.stereotype.Repository
+import java.util.*
 
 @Repository
 class PresentationRepository(
@@ -28,6 +32,10 @@ class PresentationRepository(
 
     fun getMoviesByGenre(genre: Genre): List<Movie> {
         return movieRepository.findByGenreId(genre)
+    }
+
+    fun getMoviesById(id: Long): Optional<Movie> {
+        return movieRepository.findById(id)
     }
 
     fun getActiveReviews(): List<Review> {
