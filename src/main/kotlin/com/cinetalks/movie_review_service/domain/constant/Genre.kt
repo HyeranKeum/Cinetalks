@@ -24,5 +24,11 @@ enum class Genre {
     SUPERHERO,
     NOIR,
     SHORT,
-    EXPERIMENTAL
+    EXPERIMENTAL;
+
+    companion object {
+        fun fromOrdinal(ordinal: Int): Genre? {
+            return values().getOrNull(ordinal)
+        }
+    }
 }

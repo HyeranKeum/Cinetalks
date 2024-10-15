@@ -34,12 +34,20 @@ class PresentationApiController(
         return presentationService.getMovies()
     }
 
-/*
-    // 특정 장르 영화 모두 출력
-    @GetMapping("/v1/movies/{genre_id}")
-    fun getMoviesByGenre(@PathVariable genre_id: Genre): List<MovieDTO>{
-        return presentationService.getMoviesByGenre(genre_id)
+
+
+
+    @GetMapping("/v1/genres")
+    fun getAllGenres(): List<Genre> {
+        return Genre.values().toList()
     }
-*/
+
+    // 특정 장르 영화 모두 출력
+    @GetMapping("/v1/genres/{genreId}")
+    fun getMoviesByGenre(@PathVariable genreId: Int): List<MovieDTO>{
+        val genre = Genre.fromOrdinal(genreId)
+            ?: throw IllegalArgumentException("Invalid genre ID: $genreId")
+        return presentationService.getMoviesByGenre(genre)
+    }
 
 }

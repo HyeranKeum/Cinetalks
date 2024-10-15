@@ -10,5 +10,5 @@ interface MovieGenreRepository : JpaRepository<MovieGenre, Long> {
 
     fun findByMovieIdAndGenre(movieId: Long, genre: Genre): Optional<MovieGenre>
 
-    fun findByGenre(genre: Genre): List<MovieGenre>
+ //   fun findByGenre(genre: Genre): List<MovieGenre>
 }

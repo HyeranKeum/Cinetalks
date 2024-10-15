@@ -5,12 +5,12 @@ import java.time.LocalDateTime
 
 class MemberDTO(
     val memberName: String,
-    val reviews: List<ReviewDTO>
+    //val reviews: List<ReviewDTO>
 ) {
 
     constructor(member: Member) : this(
         memberName = member.memberName,
-        reviews = member.reviews.filter{ it.isActive }.map { ReviewDTO(it) } // 누가 썼는지와 review만,,
+        //reviews = member.reviews.filter{ it.isActive }.map { ReviewDTO(it) } // 누가 썼는지와 review만,,
     )
 
 }

@@ -26,10 +26,8 @@ class PresentationRepository(
         return movieRepository.findAllByIsActive(true)
     }
 
-    fun getMoviesByGenre(genre: Genre): List<MovieGenre> {
-        return movieGenreRepository.findByGenre(genre)
-/*        val movies = movieRepository.findByGenre(genre)
-        return movies.map { Movie(it) }*/
+    fun getMoviesByGenre(genre: Genre): List<Movie> {
+        return movieRepository.findByGenreId(genre)
     }
 
     fun getActiveReviews(): List<Review> {
