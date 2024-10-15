@@ -56,9 +56,8 @@ class PresentationApiController(
     }
 
     @GetMapping("/v1/genres/{genreId}")
-    fun getMoviesByGenre(@PathVariable genreId: Int): List<MovieDTO> {
+    fun getMoviesByGenre(@PathVariable genreId: Int): Optional<MovieDTO> {
         val genre = Genre.fromOrdinal(genreId)
-            ?: throw IllegalArgumentException("Invalid genre ID: $genreId")
         return presentationService.getMoviesByGenre(genre)
     }
 

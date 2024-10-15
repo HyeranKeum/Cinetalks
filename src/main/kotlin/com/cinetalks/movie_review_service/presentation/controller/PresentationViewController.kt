@@ -5,12 +5,11 @@ import org.springframework.web.bind.annotation.GetMapping
 
 class PresentationViewController {
 
-@Controller
+    @Controller
     class PresentationApiController {
 
         @GetMapping("/test")
-
-        fun test(): String{
+        fun test(): String {
             return "test"
         }
 
