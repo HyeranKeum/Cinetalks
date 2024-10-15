@@ -16,7 +16,7 @@ class PresentationRepository(
     private val reviewRepository: ReviewRepository,
     private val movieGenreRepository: MovieGenreRepository
 ) {
-    // 장르가 되는지 확인 ->
+
     fun getActiveIntroductions(): List<Introduction> {
         return introductionRepository.findAllByIsActive(true)
     }
@@ -41,8 +41,5 @@ class PresentationRepository(
         return memberRepository.findById(id)
     }
 
-    /*    fun getActiveReviews(): List<Review> {
-            return reviewRepository.findAllByIsActive(true)
-        }*/
 
 }

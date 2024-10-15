@@ -48,10 +48,4 @@ class PresentationService(
         return moviesByGenre.map { MovieDTO(it) }
     }
 
-    /*    fun getReview(): List<ReviewDTO1> {
-            val reviews = presentationRepository.getActiveReviews()
-
-            return reviews.map{ReviewDTO(it)}
-
-        }*/
 }
