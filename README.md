@@ -40,7 +40,6 @@
 - **GET /genres**: 모든 장르 조회
 - **GET /genres/{genre_id}**: 특정 장르 조회
 - **POST /genres**: 새로운 장르 추가
-- **PUT /genres/{genre_id}**: 특정 장르 정보 수정
 - **DELETE /genres/{genre_id}**: 특정 장르 삭제
 
 #### 3. 영화 장르 매핑 (Movie_Genre)
